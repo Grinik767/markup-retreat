@@ -1,1 +1,49 @@
-/* Пиши стили тут */
+.rating-area {
+    overflow: hidden;
+    width: 265px;
+    margin: 0 auto;
+    direction: rtl;
+}
+
+.rating-area:not(:checked) > input {
+    display: none;
+}
+
+.rating-area:not(:checked) > label {
+    float: right;
+    width: 42px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 32px;
+    line-height: 32px;
+    color: black;
+}
+
+.rating-area:not(:checked) > label:before {
+    content: '☆';
+}
+
+.rating-area > input:checked ~ label:before {
+    content: '★';
+    color: gold;
+    text-shadow: 1px 1px #c60;
+}
+
+.rating-area:not(:checked) > label:hover:before,
+.rating-area:not(:checked) > label:hover ~ label:before {
+    content: '★';
+    color: gold;
+}
+
+.rating-area > input:checked + label:hover:before,
+.rating-area > input:checked + label:hover ~ label:before,
+.rating-area > input:checked ~ label:hover:before,
+.rating-area > input:checked ~ label:hover ~ label:before,
+.rating-area > label:hover ~ input:checked ~ label:before {
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+}
+
+.rating-area > label:active {
+    position: relative;
+}
